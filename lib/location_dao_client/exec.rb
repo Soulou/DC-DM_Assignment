@@ -6,11 +6,9 @@ module LocationDAOClient
 
   def self.exec_from_stdin
     ARGV.shift
-    print "> "
-    ARGF.each do |line|
+    while line = Readline.readline("> ", true)
       command = line.split " "
       if command.length == 0
-        print "> "
         next
       end
       function = command.shift.strip
@@ -24,7 +22,6 @@ module LocationDAOClient
       rescue ArgumentError
         puts "Invalid arguments for #{function}"
       end
-      print "> "
     end
   end
 end

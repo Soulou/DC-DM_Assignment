@@ -12,6 +12,22 @@ Tasks
 * `rake daoclient:exec` Interactive prompt to use the DSL of the DAO
 * `rake daoclinet:exec [file]` Interpret the file with the DSL
 
+DAO Client
+----------
+
+> `rake daoclient:exec`
+
+### Language
+
+* `GETALL`
+* `GET id`
+* `FINDBYNAME name`
+* `CREATE attr1 value1 attr2 value2 …`
+
+_Note_: The application uses an interface to GNU readline to provide an history in the commands
+you run.
+
+
 API Server
 ----------
 
