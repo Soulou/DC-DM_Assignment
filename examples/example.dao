@@ -1,0 +1,5 @@
+GETALL
+CREATE name, "TestLocation", city, "TestCity", country, "TestCountry"
+GET last
+UPDATE last, name, "TestModification"
+DELETE last

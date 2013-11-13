@@ -24,11 +24,17 @@ DAO Client
 ### Language
 
 * `GETALL`
-* `GET id`
+* `GET <id>`
 * `FINDBYNAME name`
 * `CREATE attr1, "value1", attr2, "value2", …`
-* `UPDATE id, attr1, "value1", …
-* `DELETE id`
+* `UPDATE <id>, attr1, "value1", …
+* `DELETE <id>`
+
+> The keywork 'last' can substitute an ID and it represents the last item which has been get/create
+> i.e.:
+> * `GET <id>`
+> * `UPDATE last, name, "New name"`
+> * `DELETE last
 
 _Note_: The application uses an interface to GNU readline to provide an history in the commands
 you run.
