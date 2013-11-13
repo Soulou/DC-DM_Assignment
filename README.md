@@ -15,14 +15,20 @@ Tasks
 DAO Client
 ----------
 
+> ### Interactive client
 > `rake daoclient:exec`
+> ### Script client
+> `rake daoclient:exec [file]`
+> _Note_: Some example could be found in the 'examples' directory
 
 ### Language
 
 * `GETALL`
 * `GET id`
 * `FINDBYNAME name`
-* `CREATE attr1 value1 attr2 value2 …`
+* `CREATE attr1, "value1", attr2, "value2", …`
+* `UPDATE id, attr1, "value1", …
+* `DELETE id`
 
 _Note_: The application uses an interface to GNU readline to provide an history in the commands
 you run.
