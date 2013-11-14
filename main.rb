@@ -2,12 +2,16 @@ module LocationsRest
   class Main < Sinatra::Base
     # Set the app root
     set :root, File.dirname(__FILE__)
+    # Static files for images
+    set :static, true
+    # public directory
+    set :public_dir, 'public'
 
     register Sinatra::AssetPack
     register Sinatra::RespondWith
 
     assets do
-      serve '/fonts',     from: 'app/fonts'
+      serve '/fonts',     from: 'app/css/fonts'
       js :application, ['/js/*.js']
       js :zepto, ['/js/vendor/zepto.min.js']
       js :bootstrap, ['/js/vendor/bootstrap.min.js']

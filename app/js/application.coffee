@@ -49,7 +49,18 @@ $ ->
       # Refresh the locations list
       $("#locations_lists").html(
         _.map(data, (c) ->
-          "<li class=\"location\">" + c.name + "<br>" + c.city + " " + c.country + "</li>"
+          text = ""
+          if c.description
+            text +="<li class=\"location\" data-toggle=\"tooltip\" title=\""+c.description+"\">"
+          else
+            text +="<li class=\"location\">"
+
+          if !c.picture.thumb.url.match /missing\.png/
+            text += "<i class=\"glyphicon glyphicon-camera\" />"
+            text += "<a href=\""+c.picture.original.url+"\"><img alt=\""+c.name+"\" src=\""+c.picture.thumb.url+"\"></a>"
+          
+          text += "<p>" + c.name + "<br>" + c.city + " " + c.country + "</p></li>"
+          return text
         ).join("")
       )
       _.map data, (c) ->
