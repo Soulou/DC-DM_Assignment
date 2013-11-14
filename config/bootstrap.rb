@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
+Encoding.default_external = Encoding::UTF_8
 require 'sinatra/respond_with'
 
 root_dir = File.dirname(__FILE__) + "/.."
