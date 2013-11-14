@@ -39,12 +39,15 @@ DAO Client
 _Note_: The application uses an interface to GNU readline to provide an history in the commands
 you run.
 
-
 API Server
 ----------
 
 To run the server: `rackup -p $PORT`
 
+API Documentation
+-----------------
+
+[Go to the API documentation](../blob/master/doc/api.md)
 
 ### Some explanations about the file of the project
 
@@ -53,4 +56,4 @@ To run the server: `rackup -p $PORT`
 * `Procfile`: Define how to run the server on a PaaS like Appsdeck or Heroku
 * `Rakefile`: Define some "batch" tasks which can be run
 * `config.ru`: Specify a standard way to launch the application as a Rack-compliant web service
-* `mongoid.yml`: Configuration of mongoid, the gem used to connect to a MongoDB database
+* `config/mongoid.yml`: Configuration of mongoid, the gem used to connect to a MongoDB database
