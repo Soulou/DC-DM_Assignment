@@ -1,4 +1,4 @@
-attributes :name, :city, :country, :description, :is_real
+attributes :name, :city, :country, :description, :is_real, :longitude, :latitude
 node(:id) { |location| location.id.to_s }
 
 node(:picture) do |location|

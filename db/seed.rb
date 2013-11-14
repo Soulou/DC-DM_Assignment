@@ -47,7 +47,7 @@ Location.create(
   :picture => pict_read("images/atlantis.png"),
   :name => "Atlantis",
   :descrption => "The disappeared underwater city",
-  :city => "Athen",
+  :city => "Thessaloniki",
   :country => "Greece",
   :is_real => false
 )
@@ -80,10 +80,19 @@ Location.create(
 )
 
 Location.create(
-  :picture => pict_read("images/ankhmorpork.png"),
-  :name => "Ankh Morpork",
-  :descrption => "Fictional city of the discworld from Terry Pratchett",
-  :city => "Beaconsfield",
-  :country => "United Kingdom",
+  :picture => pict_read("images/guiness.png"),
+  :name => "Guiness Brewery",
+  :descrption => "Official Brewery of the beer Guiness",
+  :city => "Dublin",
+  :country => "Ireland",
+  :is_real => true
+)
+
+Location.create(
+  :picture => pict_read("images/sagrada.png"),
+  :name => "Sagrada Familia Cathedral",
+  :descrption => "Eternal unfinished cathedral",
+  :city => "Barcelona",
+  :country => "Spain",
   :is_real => true
 )

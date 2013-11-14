@@ -1,6 +1,19 @@
 module LocationsRest
   class Main < Sinatra::Base
+    # Set the app root
+    set :root, File.dirname(__FILE__)
+
+    register Sinatra::AssetPack
     register Sinatra::RespondWith
+
+    assets do
+      serve '/fonts',     from: 'app/fonts'
+      js :application, ['/js/*.js']
+      js :zepto, ['/js/vendor/zepto.js']
+      js :bootstrap, ['/js/vendor/bootstrap.js']
+      js :underscore, ['/js/vendor/underscore.js']
+      css :application, ['/css/vendor/**/*.css', '/css/*.css']
+    end
 
     helpers do
       def respond_rabl(view, status_code = 200)
@@ -35,6 +48,10 @@ module LocationsRest
       merge_json_body
     end
 
+    get '/' do
+      haml :index
+    end
+
     get '/locations' do
       @locations = Location.all
       respond_rabl :index
@@ -50,7 +67,7 @@ module LocationsRest
     end
 
     get '/locations/search/:name' do
-      @locations = Location.where :name => /#{params[:name]}/
+      @locations = Location.where :name => /^#{params[:name]}/i
       respond_rabl :index
     end
 

@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title AJAX Client to location
+    != css :normalize, :media => 'screen'
+    != css :application, :media => 'screen'
+  %body
+    .top-border
+    .container
+      %h1 Locations finder
+      %form#locations_form.form-inline.form-horizontal
+        %fieldset
+          %label{for: "location_name"} Location name →
+          %input{autofocus: "true", type: "text", name: "location[name]", id: "location_name", placeholder: "Type location"}
+    
+      #locations.col-md-6
+        %ul#locations_lists
+      #locations_map.col-md-6
+
+    %script{type: "text/javascript", src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBEGDm8X5evOaK1ldzg1VuH_E0DUztrLdQ&sensor=false&region=GB"}
+    != js :zepto
+    != js :bootstrap
+    != js :underscore
+    != js :application

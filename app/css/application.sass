@@ -1,0 +1,43 @@
+@font-face
+  font-family: 'Cabin'
+  font-style: normal
+  font-weight: 400
+  src: local('Cabin Regular'), local('Cabin-Regular'), url(https://themes.googleusercontent.com/static/fonts/cabin/v4/JEgmtEDzc-IH8jBshQXrYA.woff) format('woff')
+
+body
+  border-top: 2px solid #FFC973
+  font-family: 'Cabin' sans-serif
+  padding-top: 30px
+  background-color: #e5e5e5
+  & h1
+    margin-bottom: 40px
+
+form
+  margin-bottom: 50px
+  input[type=text]
+    border: 1px solid #ccc
+    padding-left: 5px
+    margin-left: 20px
+    padding-right: 5px
+    height: 40px
+    width: 500px
+  label
+    font-size: large
+
+li.location
+  list-style-type: none
+  width: 100%
+  height: 50px
+  text-align: center
+  padding-top: 5px
+
+  background-color: #efefef
+  border-left: 1px solid #999
+  border-right: 1px solid #999
+  border-bottom: 1px solid #999
+  &:first-child
+    border-top: 1px solid #999
+
+#locations_map
+  width: 50%
+  height: 500px

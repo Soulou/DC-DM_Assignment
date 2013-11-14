@@ -9,7 +9,7 @@ module LocationDAOClient
   end
 
   def self.FINDBYNAME(pattern)
-    locations = Location.where name: /^#{pattern}/
+    locations = Location.where name: /^#{pattern}/i
     if locations.count > 0
       locations.each do |l|
         puts l.to_s + ","
