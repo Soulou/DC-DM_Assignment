@@ -1,0 +1,2 @@
+object @location
+extends 'location'
