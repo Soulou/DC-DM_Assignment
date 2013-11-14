@@ -32,7 +32,7 @@
       return accumulator
     }
 
-})()
+})();
 
 var Zepto = (function() {
   var undefined, key, $, classList, emptyArray = [], slice = emptyArray.slice, filter = emptyArray.filter,
@@ -142,7 +142,7 @@ var Zepto = (function() {
   zepto.fragment = function(html, name, properties) {
     if (html.replace) html = html.replace(tagExpanderRE, "<$1></$2>")
     if (name === undefined) name = fragmentRE.test(html) && RegExp.$1
-    if (!(name in containers)) name = '*'
+    if (!(name in containers)) name = '*';
 
     var nodes, dom, container = containers[name]
     container.innerHTML = '' + html
@@ -815,7 +815,7 @@ var Zepto = (function() {
   $.zepto = zepto
 
   return $
-})()
+})();
 
 window.Zepto = Zepto
 '$' in window || (window.$ = Zepto)
@@ -870,7 +870,7 @@ window.Zepto = Zepto
   // make available to unit tests
   $.__detect = detect
 
-})(Zepto)
+})(Zepto);
 
 ;(function($){
   var $$ = $.zepto.qsa, handlers = {}, _zid = 1, specialEvents={},
