@@ -47,7 +47,7 @@ To run the server: `rackup -p $PORT`
 API Documentation
 -----------------
 
-[Go to the API documentation](../blob/master/doc/api.md)
+[Go to the API documentation](../master/doc/api.md)
 
 ### Some explanations about the file of the project
 
