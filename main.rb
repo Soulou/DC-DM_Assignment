@@ -9,8 +9,8 @@ module LocationsRest
     assets do
       serve '/fonts',     from: 'app/fonts'
       js :application, ['/js/*.js']
-      js :zepto, ['/js/vendor/zepto.js']
-      js :bootstrap, ['/js/vendor/bootstrap.js']
+      js :zepto, ['/js/vendor/zepto.min.js']
+      js :bootstrap, ['/js/vendor/bootstrap.min.js']
       js :underscore, ['/js/vendor/underscore.js']
       css :application, ['/css/vendor/**/*.css', '/css/*.css']
     end
