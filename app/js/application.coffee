@@ -43,7 +43,7 @@ $ ->
     # We remove the privous markers
     mapClearMarker()
 
-    if this.value == ""
+    if this.value == "" || this.value == "."
       $("#locations_lists").html ""
       return
 
@@ -58,6 +58,12 @@ $ ->
       success: (data, status, xhr) ->
         $("#pacman").toggleClass("invisible")
         # Refresh the locations list
+        if data.length == 0
+          $("#locations_lists").html(
+              "<li class=\"location\"><p>No place found</p></li>"
+          )
+          return
+
         $("#locations_lists").html(
           _.map(data, (c) ->
             text = ""
