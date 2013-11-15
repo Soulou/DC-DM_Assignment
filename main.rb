@@ -32,12 +32,12 @@ module LocationsRest
       end
 
       def merge_json_body
-        body = request.body.read
+        @body = request.body.read
         if request.content_type != "application/x-www-form-urlencoded" && request.content_type != "application/json"
           halt 400, {"error" => "Invalid parameters format"}.to_json
         end
         begin
-          params.merge!(JSON.parse body)
+          @body = JSON.parse @body
         rescue JSON::ParserError
           halt 400, {"error" => "Invalid JSON"}.to_json
         end
@@ -77,10 +77,10 @@ module LocationsRest
     end
 
     post '/locations' do
-      if !params.has_key? "location"
+      if !@body.has_key? "location"
         halt 422,  {:error => "Missing parameter 'location'" }.to_json
       end
-      @location = Location.new params["location"]
+      @location = Location.new @body["location"]
       if @location.save
         respond_rabl :show, 201
       else
@@ -91,10 +91,10 @@ module LocationsRest
     put '/locations/:id' do
       begin
         @location = Location.find params[:id]
-        if !params.has_key? "location"
+        if !@body.has_key? "location"
           halt 422,  {:error => "Missing parameter 'location'" }.to_json
         end
-        if @location.update_attributes params["location"]
+        if @location.update_attributes @body["location"]
           respond_rabl :show
         else
           halt 422, {:error => @location.errors}.to_json
