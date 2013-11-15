@@ -12,6 +12,8 @@
         %fieldset
           %label{for: "location_name"} Location name →
           %input{autocomplete: "off", autofocus: "true", type: "text", name: "location[name]", id: "location_name", placeholder: "Type location"}
+          %span#pacman.invisible
+            != img '/images/pacman.gif'
     
       #locations.col-md-6
         %ul#locations_lists

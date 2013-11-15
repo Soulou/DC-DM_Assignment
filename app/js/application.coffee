@@ -50,28 +50,34 @@ $ ->
     url = "/locations/search/" + escape(this.value)
     @previous = this.value
     # AJAX Request
-    $.getJSON url, (data, status, xhr) ->
-      # Refresh the locations list
-      $("#locations_lists").html(
-        _.map(data, (c) ->
-          text = ""
-          if c.description
-            text +="<li class=\"location\" data-toggle=\"tooltip\" title=\""+c.description+"\">"
-          else
-            text +="<li class=\"location\">"
+    $.ajax
+      type: "GET"
+      url: url
+      beforeSend: (xhr, settings) ->
+        $("pacman").toggleClass("invisible")
+      success: (data, status, xhr) ->
+        $("pacman").toggleClass("invisible")
+        # Refresh the locations list
+        $("#locations_lists").html(
+          _.map(data, (c) ->
+            text = ""
+            if c.description
+              text +="<li class=\"location\" data-toggle=\"tooltip\" title=\""+c.description+"\">"
+            else
+              text +="<li class=\"location\">"
 
-          if !c.picture.thumb.url.match /missing\.png/
-            text += "<i class=\"glyphicon glyphicon-camera\" />"
-            text += "<a href=\""+c.picture.original.url+"\"><img alt=\""+c.name+"\" src=\""+c.picture.thumb.url+"\"></a>"
-          
-          text += "<p>" + c.name + "<br>" + c.city + " " + c.country + "</p></li>"
-          return text
-        ).join("")
-      )
-      _.map data, (c) ->
-        # Add marker of each place on the map
-        if c.longitude && c.latitude
-          mapAddMarker c.name, c.longitude, c.latitude
+            if !c.picture.thumb.url.match /missing\.png/
+              text += "<i class=\"glyphicon glyphicon-camera\" />"
+              text += "<a href=\""+c.picture.original.url+"\"><img alt=\""+c.name+"\" src=\""+c.picture.thumb.url+"\"></a>"
+
+            text += "<p>" + c.name + "<br>" + c.city + " " + c.country + "</p></li>"
+            return text
+          ).join("")
+        )
+        _.map data, (c) ->
+          # Add marker of each place on the map
+          if c.longitude && c.latitude
+            mapAddMarker c.name, c.longitude, c.latitude
       
 
 # Initialize google maps
