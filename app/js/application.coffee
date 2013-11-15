@@ -35,7 +35,11 @@ $ ->
     event.preventDefault()
     false
 
+  @previous = ""
   $("#location_name").on "keyup", (event) ->
+    if this.value == @previous
+      return
+
     # We remove the privous markers
     mapClearMarker()
 
@@ -44,6 +48,7 @@ $ ->
       return
 
     url = "/locations/search/" + escape(this.value)
+    @previous = this.value
     # AJAX Request
     $.getJSON url, (data, status, xhr) ->
       # Refresh the locations list
