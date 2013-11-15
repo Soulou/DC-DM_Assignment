@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
-# CAO Client
+# DAO Client
 gem 'rake'
 gem 'rb-readline', :require => "readline"
+
+# Rest Client
+gem 'rest-client'
+gem 'json'
 
 # Web server
 gem 'sinatra'

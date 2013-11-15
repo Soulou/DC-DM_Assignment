@@ -11,6 +11,8 @@ Tasks
 * `rake console` Interactive console in the environment of the application (Access to database)
 * `rake daoclient:exec` Interactive prompt to use the DSL of the DAO
 * `rake daoclinet:exec [file]` Interpret the file with the DSL
+* `rake restclient:exec <service_URL>` Same as DAO client but for a webservice
+* `rake restclient:exec <service_URL> [file]`
 
 DAO Client
 ----------
@@ -19,7 +21,15 @@ DAO Client
 > `rake daoclient:exec`
 > ### Script client
 > `rake daoclient:exec [file]`
-> _Note_: Some example could be found in the 'examples' directory
+-> _Note_: One example could be found in the 'examples' directory
+
+Rest Client
+-----------
+
+> ### Interactive client
+> `rake restclient:exec <service_URL>`
+> ### Script client
+> `rake restclient:exec <service_URL> [file]`
 
 ### Language
 
