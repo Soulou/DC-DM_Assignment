@@ -40,7 +40,7 @@ Parameters
 
 For POST/PUT requests the parameters must be encoded in JSON
 and the header `Content-Type` must be set at
-`application/x-www-form-urlencoded`.
+`application/x-www-form-urlencoded` or `applicaton/json`.
 
 Error Handling
 --------------

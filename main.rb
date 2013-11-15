@@ -32,11 +32,12 @@ module LocationsRest
       end
 
       def merge_json_body
-        if request.content_type != "application/x-www-form-urlencoded"
+        body = request.body.read
+        if request.content_type != "application/x-www-form-urlencoded" && request.content_type != "application/json"
           halt 400, {"error" => "Invalid parameters format"}.to_json
         end
         begin
-          params.merge!(JSON.parse request.body.read)
+          params.merge!(JSON.parse body)
         rescue JSON::ParserError
           halt 400, {"error" => "Invalid JSON"}.to_json
         end
