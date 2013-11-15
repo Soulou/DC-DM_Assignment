@@ -12,8 +12,8 @@ class Location
   # Add a picture attribute and manage two style for this picture
   has_mongoid_attached_file(
     :picture,
-    :path => "public/img/:attachment/:id/:style/:basename.:extension",
-    :url => "img/:attachment/:id/:style/:basename.:extension",
+    :path => "public/img/:attachment/:style/:basename.:extension",
+    :url => "img/:attachment/:style/:basename.:extension",
     :styles => {
       :original => ['1920x1680>', :png],
       :thumb    => ['64x64>',   :png]
