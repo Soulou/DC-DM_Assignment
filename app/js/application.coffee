@@ -54,9 +54,9 @@ $ ->
       type: "GET"
       url: url
       beforeSend: (xhr, settings) ->
-        $("pacman").toggleClass("invisible")
+        $("#pacman").toggleClass("invisible")
       success: (data, status, xhr) ->
-        $("pacman").toggleClass("invisible")
+        $("#pacman").toggleClass("invisible")
         # Refresh the locations list
         $("#locations_lists").html(
           _.map(data, (c) ->
