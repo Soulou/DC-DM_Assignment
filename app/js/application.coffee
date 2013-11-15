@@ -45,7 +45,7 @@ $ ->
 
     url = "/locations/search/" + escape(this.value)
     # AJAX Request
-    $.get url, (data, status, xhr) ->
+    $.getJSON url, (data, status, xhr) ->
       # Refresh the locations list
       $("#locations_lists").html(
         _.map(data, (c) ->
